@@ -2,20 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -23,6 +15,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $categories = Category::select('slug', 'cover', 'name')
+        ->whereCategoryId(null)
+        ->limit(4)
+        ->get();
+         
+        return view('frontend.homepage', compact('categories'));
+    }
+
+    public function search(Request $request)
+    {
+        $data = Product::select('slug', 'name')
+            ->where('name', 'LIKE', '%'.$request->productName. '%')
+            ->active()
+            ->hasQuantity()
+            ->take(5)
+            ->get();
+
+        return response()->json($data);
     }
 }

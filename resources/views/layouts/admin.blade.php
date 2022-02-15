@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
 
 </head>
 
@@ -60,10 +61,15 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+
+                                <a class="dropdown-item" href="#" onclick="getElementById('logout-form').submit()">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="post">
+                                    @csrf
+
+                                </form>
                             </div>
                         </li>
 
@@ -135,10 +141,14 @@
 
     <!-- Page level plugins -->
     <script src="{{ asset('backend/vendor/chart.js/Chart.min.js') }}"></script>
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <!-- Page level custom scripts -->
     <!-- <script src="{{ asset('backend/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('backend/js/demo/chart-pie-demo.js') }}"></script> -->
+    @stack('script-alt')
 
 </body>
 
