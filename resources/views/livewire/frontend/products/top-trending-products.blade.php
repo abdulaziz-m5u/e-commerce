@@ -16,11 +16,11 @@
                                 <img src="{{ asset('img/cartwhite.png' ) }}" alt="">
                             @endif
                             <div class="product-furit-action">
-                                <a style="cursor: pointer;" wire:click.prevent="addToCart('{{ $product->id }}')"
+                                <a style="cursor: pointer;"
                                    class="furit-animate-left" title="Add To Cart">
                                     <i class="fas fa-shopping-cart"></i>
                                 </a>
-                                <a wire:click.prevent="addToWishList('{{ $product->id }}')"
+                                <a 
                                    class="furit-animate-right" title="Wishlist">
                                     <i class="fas fa-heart"></i>
                                 </a>

@@ -31,15 +31,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse(Cart::instance('default')->content() as $item)
-                                        <livewire:frontend.cart.cart-item-component :item="$item->rowId" :key="$item->rowId"/>
-                                    @empty
+                                 item component
                                     <tr>
                                         <td class="pl-0 border-light" colspan="5">
                                             <p class="text-center">No items found.</p>
                                         </td>
                                     </tr>
-                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -49,7 +46,7 @@
 
             <!-- cart total -->
             <div class="row">
-                <livewire:frontend.cart.cart-total-component/>
+                cart total component
             </div>
             <div class="row">
                 <div class="col-md-4 ">
@@ -59,11 +56,9 @@
                         Continue to shopping
                     </a>
                 </div>
-                @if(Cart::instance('default')->count())
                     <div class="col-md-4 ">
-                        <livewire:frontend.button.proceed-checkout-button-component />
+                        button component
                     </div>
-                @endif
             </div>
         </div>
     </div>

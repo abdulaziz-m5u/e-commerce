@@ -20,15 +20,4 @@ class TopTrendingProducts extends Component
         ]);
     }
 
-    public function addToCart($productId)
-    {
-        $product = Product::whereId($productId)->active()->hasQuantity()->firstOrFail();
-        try {
-            (new CartService())->addToList('default', $product);
-            $this->emit('update_cart');
-            $this->alert('success', 'added to Cart.');
-        } catch(\Exception $exception) {
-            $this->alert('warning', $exception->getMessage());
-        }
-    }
 }

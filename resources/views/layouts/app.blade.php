@@ -131,7 +131,7 @@
                             @endguest
                         </ul>
                     </div>
-                    <livewire:frontend.header.cart-component />
+                 <!-- cart -->
                 </div>
             </div>
             <div class="row">
